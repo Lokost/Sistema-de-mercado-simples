@@ -80,11 +80,6 @@ class BD:
         self.__db_cursor.execute(f'select * from {table}')
         return self.__db_cursor.fetchall()
 
-    # Gerenciamento da tabela de produtos
-    def obter_produtos(self) -> list:
-        self.__db_cursor.execute('select * from produtos')
-        return self.__db_cursor.fetchall()
-
     def registrar_produto(self, prod, quant, cod, preco) -> int:
         try:
             self.__db_cursor.execute('select * from produtos')
@@ -126,11 +121,6 @@ class BD:
 
     def pesquisa_produto(self, filtro, pesquisa) -> list:
         self.__db_cursor.execute(f'select * from produtos where {filtro} like "%{pesquisa}%')
-        return self.__db_cursor.fetchall()
-
-    # Gerenciamento da tabela clientes
-    def obter_clientes(self) -> list:
-        self.__db_cursor.execute('select * from clientes')
         return self.__db_cursor.fetchall()
 
     def resetar_tabela_clientes(self) -> list:
